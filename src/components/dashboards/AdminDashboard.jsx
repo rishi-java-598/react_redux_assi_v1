@@ -59,13 +59,13 @@ const AdminDashboard = () => {
 
   return (
     <div className={styles.outer}>
-            <div className={styles.header}>
+ 
+    <div className={styles.dashboard}>
+  
+           <div className={styles.header}>
         <h1>Welcome, {user?.name}</h1>
         <p>Administrator Dashboard</p>
       </div>
-    <div className={styles.dashboard}>
-  
-
       <div className={styles.tabs}>
         <div className={styles.tabsList}>
           <div className={selectedTab === 'overview' ? styles.activeTab : ''} onClick={() => setSelectedTab('overview')}>Overview</div>
