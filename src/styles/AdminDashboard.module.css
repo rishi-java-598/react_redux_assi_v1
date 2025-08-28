@@ -1,0 +1,470 @@
+
+.outer{
+    
+}
+
+.dashboard {
+  padding: 2rem;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabsList {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.tabsList div {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.activeTab {
+  border-bottom: 2px solid #007BFF;
+}
+
+.overview, .manageUsers {
+  padding: 1rem;
+}
+
+.statCard {
+  background-color: #f4f7fa;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.inputGroup input, select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+}
+
+.addUserButton {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.usersList {
+  margin-top: 1rem;
+}
+
+.userRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.dashboard {
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabsList {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.tabsList div {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.activeTab {
+  border-bottom: 2px solid #007BFF;
+}
+
+.policies, .claims, .manageUsers {
+  padding: 1rem;
+}
+
+.statCard {
+  background-color: #f4f7fa;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.inputGroup input, select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+}
+
+.addUserButton {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.usersList {
+  margin-top: 1rem;
+}
+
+.userRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.table {
+  margin-top: 1rem;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+}
+
+.status {
+  text-transform: capitalize;
+}
+
+.status.active {
+  color: green;
+}
+
+.status.pending {
+  color: orange;
+}
+
+.status.closed {
+  color: red;
+}
+
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f8fc;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #777;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabsList {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.tabsList div {
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.tabsList div:hover {
+  background-color: #e3f0f7;
+}
+
+.activeTab {
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+}
+
+.overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.statCard {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.statCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.statCard p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.policyStatusOverview,
+.claimsStatusOverview {
+  margin-top: 3rem;
+}
+
+.statusItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.status {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.status.pending {
+  color: orange;
+}
+
+.status.approved {
+  color: green;
+}
+
+.statusItem p {
+  font-weight: normal;
+}
+
+.table {
+  margin-top: 3rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  background-color: #f1f1f1;
+  text-align: left;
+  padding: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.tableRow {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableRow span {
+  padding: 1rem;
+  display: inline-block;
+}
+
+.tableRow span:last-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status {
+  color: #007BFF;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.modalContent input,
+.modalContent select,
+.modalContent button {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.modalContent button {
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.modalContent button:hover {
+  background-color: #0056b3;
+}
+
+.usersList {
+  margin-top: 2rem;
+}
+
+.userRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.userRow button {
+  background-color: #ff4040;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.userRow button:hover {
+  background-color: #e53935;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+}
+
+input:focus,
+select:focus {
+  border-color: #007BFF;
+  outline: none;
+} */
