@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styles from '../../styles/customerDashboard.module.css';
-import styles2 from '../../styles/adminDashboard.module.css'
+
 const CustomerDashboard = () => {
   const { user } = useSelector((state) => state.auth);
   const { policies } = useSelector((state) => state.policies);
   const { claims } = useSelector((state) => state.claims);
-  const { payments: reduxPayments } = useSelector((state) => state.payments);
+  const { payments } = useSelector((state) => state.payments);
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [paymentAmounts, setPaymentAmounts] = useState({}); // key: policyId, value: string
-  const [payments, setPayments] = useState(reduxPayments); // local state for new payments
+  const [paymentAmount, setPaymentAmount] = useState('');
   const [activeTab, setActiveTab] = useState('policies');
 
   const userPolicies = policies.filter(p => p.customerId === user?.id);
@@ -27,37 +26,10 @@ const CustomerDashboard = () => {
     claim.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleInputChange = (policyId, value) => {
-    setPaymentAmounts(prev => ({
-      ...prev,
-      [policyId]: value
-    }));
-  };
-
   const handlePayment = (policyId) => {
-    const amount = paymentAmounts[policyId];
-    if (!amount || isNaN(amount) || Number(amount) <= 0) return;
-
-    const newPayment = {
-      id: `${Date.now()}`,
-      customerId: user.id,
-      policyId,
-      date: new Date().toISOString().split('T')[0],
-      amount: Number(amount),
-      type: 'Online',
-      status: 'Completed'
-    };
-
-    // Add to local payment list
-    setPayments(prev => [...prev, newPayment]);
-
-    // Reset input
-    setPaymentAmounts(prev => ({
-      ...prev,
-      [policyId]: ''
-    }));
-
-    alert(`Payment of $${amount} initiated for policy ${policyId}`);
+    if (!paymentAmount) return;
+    alert(`Payment of $${paymentAmount} initiated for policy ${policyId}`);
+    setPaymentAmount('');
   };
 
   return (
@@ -67,14 +39,12 @@ const CustomerDashboard = () => {
         <p>Customer Dashboard</p>
       </div>
 
-      <div className={styles2.tabs}>
-        <div className={styles2.tabsList}>
-
-                    <div className={activeTab === 'policies' ? styles2.activeTab : ''} onClick={() => setActiveTab('policies')}>Overview</div>
-                    <div className={activeTab === 'claims' ? styles2.activeTab : ''} onClick={() => setActiveTab('claims')}>Manage Users</div>
-                    <div className={activeTab === 'payments' ? styles2.activeTab : ''} onClick={() => setActiveTab('payments')}>Policy Status</div>
-                    <div className={activeTab === 'documents' ? styles2.activeTab : ''} onClick={() => setActiveTab('documents')}>Claims Status</div>
-      </div>
+      <div className={styles.tabs}>
+        <div className={styles.tabsList}>
+          <button onClick={() => setActiveTab('policies')}>My Policies</button>
+          <button onClick={() => setActiveTab('claims')}>My Claims</button>
+          <button onClick={() => setActiveTab('payments')}>Payment History</button>
+          <button onClick={() => setActiveTab('documents')}>Documents</button>
         </div>
 
         {activeTab === 'policies' && (
@@ -109,8 +79,8 @@ const CustomerDashboard = () => {
                       <input
                         type="number"
                         placeholder="Payment amount"
-                        value={paymentAmounts[policy.id] || ''}
-                        onChange={(e) => handleInputChange(policy.id, e.target.value)}
+                        value={paymentAmount}
+                        onChange={(e) => setPaymentAmount(e.target.value)}
                         className={styles.paymentInput}
                       />
                       <button
@@ -192,6 +162,7 @@ const CustomerDashboard = () => {
           </div>
         )}
       </div>
+    </div>
   );
 };
 
