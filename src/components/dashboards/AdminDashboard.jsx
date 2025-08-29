@@ -73,7 +73,7 @@ const AdminDashboard = () => {
           <div className={selectedTab === 'policies' ? styles.activeTab : ''} onClick={() => setSelectedTab('policies')}>Policy Status</div>
           <div className={selectedTab === 'claims' ? styles.activeTab : ''} onClick={() => setSelectedTab('claims')}>Claims Status</div>
         </div>
-
+      </div>
         {selectedTab === 'overview' && (
           <div className={styles.overview}>
             <div className={styles.stats}>
@@ -94,17 +94,75 @@ const AdminDashboard = () => {
                 <p>{pendingClaims}</p>
               </div>
             </div>
+
+            <div className={styles.statusoverview}>
+              
+              <div className={styles.sotab}>
+
+                <div className={styles.upper}>
+                  <h3>Policy Status Overview</h3>
+                </div>
+                <div className={styles.dipper}>
+
+              <div className={styles.soinup}>
+                                    <span className={styles.actspan}>active</span>
+                                    <span>1 policies</span>
+                                    
+                                    </div>
+                                    <div className={styles.soindown}>
+                                    <span className={styles.normspan}>pending</span>
+                                    <span>2 policies</span>
+                                    </div>
+
+                </div>
+
+              </div>
+
+              <div className={styles.sotab}>
+
+                <div className={styles.upper}>
+                                    <h3>Claim Status Overview</h3>
+
+                                    
+                                   
+
+
+                </div>
+                <div className={styles.dipper}>
+<div className={styles.soinup}>
+                                    <span className={styles.normspan}>pending</span>
+                                    <span>1 claims</span>
+                                    
+                                    </div>
+                                    <div className={styles.soindown}>
+                                    <span className={styles.actspan}>approved</span>
+                                    <span>2 claims</span>
+                                    </div>
+
+                </div>
+
+              </div>
+              
+             
+              
+            </div>
           </div>
         )}
 
         {selectedTab === 'users' && (
           <div className={styles.manageUsers}>
-            <input
+           
+            <div classname={styles.toolsdiv}>
+              <h2>Manage Users</h2>
+               <input
               type="text"
               value={searchTerm}
+              className={styles.sbar}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search users..."
             />
+
+            </div>
             <button className={styles.addUserButton} onClick={() => setIsModalOpen(true)}>Add New User</button>
 
             {isModalOpen && (
@@ -213,7 +271,6 @@ const AdminDashboard = () => {
           </div>
         )}
       </div>
-    </div>
     </div>
   );
 };

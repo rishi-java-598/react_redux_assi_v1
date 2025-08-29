@@ -1,0 +1,233 @@
+
+.outer{
+    
+}
+
+.dashboard {
+  padding: 2rem;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabsList {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.tabsList div {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.activeTab {
+  border-bottom: 2px solid #007BFF;
+}
+
+.overview, .manageUsers {
+  padding: 1rem;
+}
+
+.statCard {
+  background-color: #f4f7fa;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.inputGroup input, select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+}
+
+.addUserButton {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.usersList {
+  margin-top: 1rem;
+}
+
+.userRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.dashboard {
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabsList {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.tabsList div {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.activeTab {
+  border-bottom: 2px solid #007BFF;
+}
+
+.policies, .claims, .manageUsers {
+  padding: 1rem;
+}
+
+.statCard {
+  background-color: #f4f7fa;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.inputGroup input, select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+}
+
+.addUserButton {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.usersList {
+  margin-top: 1rem;
+}
+
+.userRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.table {
+  margin-top: 1rem;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  margin-bottom: 0.5rem;
+}
+
+.status {
+  text-transform: capitalize;
+}
+
+.status.active {
+  color: green;
+}
+
+.status.pending {
+  color: orange;
+}
+
+.status.closed {
+  color: red;
+}
