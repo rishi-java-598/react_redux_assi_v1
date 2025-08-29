@@ -3,6 +3,7 @@ import Login from '../login/login';
 import CustomerDashboard from '../dashboards/CustomerDashboard';
 import AgentDashboard from '../dashboards/AgentDashboard';
 import AdminDashboard from '../dashboards/AdminDashboard';
+import Navbar from '../layout/navbar';
 
 const InsuranceApp = () => {
   const { isAuthenticated, user } = useSelector((state) => state.auth);
@@ -14,11 +15,11 @@ const InsuranceApp = () => {
   const renderDashboard = () => {
     switch (user?.role) {
       case 'customer':
-        return <CustomerDashboard />;
+        return<><Navbar/> <CustomerDashboard /></>;
       case 'agent':
-        return <AgentDashboard />;
+        return<><Navbar/> <AgentDashboard /> </>;
       case 'administrator':
-        return <AdminDashboard />;
+        return <><Navbar/><AdminDashboard /> </>;
       default:
         return <div>Invalid user role</div>;
     }
