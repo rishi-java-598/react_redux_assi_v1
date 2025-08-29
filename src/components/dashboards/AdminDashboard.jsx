@@ -152,7 +152,7 @@ const AdminDashboard = () => {
         {selectedTab === 'users' && (
           <div className={styles.manageUsers}>
            
-            <div classname={styles.toolsdiv}>
+            <div className={styles.toolsdiv}>
               <h2>Manage Users</h2>
                <input
               type="text"
@@ -161,9 +161,10 @@ const AdminDashboard = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search users..."
             />
+              <button className={styles.addUserButton} onClick={() => setIsModalOpen(true)}>Add New User</button>
+
 
             </div>
-            <button className={styles.addUserButton} onClick={() => setIsModalOpen(true)}>Add New User</button>
 
             {isModalOpen && (
               <div className={styles.modal}>
@@ -199,7 +200,9 @@ const AdminDashboard = () => {
               </div>
             )}
 
-            <div className={styles.usersList}>
+
+
+             {/* <div className={styles.usersList}>
               {filteredUsers.map(user => (
                 <div key={user.id} className={styles.userRow}>
                   <span>{user.name}</span>
@@ -209,11 +212,46 @@ const AdminDashboard = () => {
                   <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
                 </div>
               ))}
-            </div>
-          </div>
-        )}
+            </div> */}
 
-        {selectedTab === 'policies' && (
+<div className={styles.usersList}>
+  <div className={styles.tableHeader}>
+    <span>Name</span>
+    <span>Email</span>
+    <span>Role</span>
+    <span>Phone</span>
+    <span>Actions</span>
+  </div>
+
+  {filteredUsers.map(user => (
+    <div key={user.id} className={styles.userRow}>
+      <span>{user.name}</span>
+      <span>{user.email}</span>
+      <span>
+        <span className={styles.roleBadge}>{user.role}</span>
+      </span>
+      <span>{user.phone}</span>
+      <span className={styles.actions}>
+        <button className={styles.deleteBtn} onClick={() => handleDeleteUser(user.id)}>Delete</button>
+      </span>
+    </div>
+  ))}
+</div>
+
+
+
+
+          </div>
+
+
+          
+        )
+        
+        
+        }
+        
+
+        {/* {selectedTab === 'policies' && (
           <div className={styles.policies}>
             <h2>All Policies</h2>
             <div className={styles.table}>
@@ -240,36 +278,84 @@ const AdminDashboard = () => {
               })}
             </div>
           </div>
-        )}
+        )} */}
+        {selectedTab === 'policies' && (
+  <div className={styles.policies}>
+    <h2 style={{marginTop:"34px"}}>All Policies</h2>
 
-        {selectedTab === 'claims' && (
-          <div className={styles.claims}>
-            <h2>All Claims</h2>
-            <div className={styles.table}>
-              <div className={styles.tableHeader}>
-                <span>Claim Number</span>
-                <span>Customer</span>
-                <span>Amount</span>
-                <span>Status</span>
-                <span>Date</span>
-              </div>
-              {claims.map(claim => {
-                const customer = users.find(u => u.id === claim.customerId);
-                return (
-                  <div key={claim.id} className={styles.tableRow}>
-                    <span>{claim.claimNumber}</span>
-                    <span>{customer?.name || 'Unknown'}</span>
-                    <span>${claim.amount}</span>
-                    <span className={`${styles.status} ${styles[claim.status.toLowerCase()]}`}>
-                      {claim.status}
-                    </span>
-                    <span>{claim.dateSubmitted}</span>
-                  </div>
-                );
-              })}
-            </div>
+    <div className={styles.usersList}>
+      <div className={styles.tableHeader}>
+        <span>Policy Number</span>
+        <span>Type</span>
+        <span>Customer</span>
+        <span>Premium</span>
+        <span>Status</span>
+      </div>
+
+      {policies.map(policy => {
+        const customer = users.find(u => u.id === policy.customerId);
+        return (
+          <div key={policy.id} className={styles.userRow}>
+            <span>{policy.policyNumber}</span>
+            <span>{policy.type}</span>
+            <span>{customer?.name || 'Unknown'}</span>
+            <span>${policy.premium}</span>
+            <span>
+              <span
+                className={policy.status==='Active'?`${styles.roleBadge} ${
+                  styles[policy.status.toLowerCase()] || ''
+                }`:''}
+                style={{fontSize:"0.75rem"}}
+              >
+                {policy.status}
+              </span>
+            </span>
           </div>
-        )}
+        );
+      })}
+    </div>
+  </div>
+)}
+
+
+       {selectedTab === 'claims' && (
+  <div className={styles.claims}>
+    <h2 style={{marginTop:"34px"}}>All Claims</h2>
+
+    <div className={styles.usersList}>
+      <div className={styles.tableHeader}>
+        <span>Claim Number</span>
+        <span>Customer</span>
+        <span>Amount</span>
+        <span>Status</span>
+        <span>Date</span>
+      </div>
+
+      {claims.map(claim => {
+        const customer = users.find(u => u.id === claim.customerId);
+        return (
+          <div key={claim.id} className={styles.userRow}>
+            <span>{claim.claimNumber}</span>
+            <span>{customer?.name || 'Unknown'}</span>
+            <span>${claim.amount}</span>
+            <span>
+              <span
+                className={claim.status==='Approved'?`${styles.roleBadge} ${
+                  styles[claim.status.toLowerCase()] || ''
+                }`:"" }
+                style={{fontSize:"0.75rem"}}
+              >
+                {claim.status}
+              </span>
+            </span>
+            <span>{claim.dateSubmitted}</span>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+)}
+
       </div>
     </div>
   );

@@ -175,6 +175,7 @@ display: grid;
     border-color: hsl(214.3 31.8% 91.4%);
     border-style: solid;
     border-radius: 8px;
+    border-width: 2px;
 
     }
 
@@ -229,6 +230,8 @@ display: grid;
     box-shadow: (0  0 #0000), 0 0 #0000, (0 0 #0000, 0 0 #0000), (0 1px 2px 0 rgb(0 0 0 / 0.05));
     border-color: hsl(214.3 31.8% 91.4%);
     border-style: solid;
+        border-width: 2px;
+
     text-align: center;
     color: hsl(222.2 84% 4.9%);
     border-radius: 8px;
@@ -276,7 +279,9 @@ padding:0 1.5rem 1.5rem 1.5rem;
 }
 
 .toolsdiv{
-    display: flex ;
+    margin-top:34px;
+
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 24px;
@@ -284,6 +289,7 @@ padding:0 1.5rem 1.5rem 1.5rem;
     gap: 16px;
 }
 .sbar{
+
   padding-top: 0.5rem;
     padding-bottom: 0.5rem;
             font-size: 0.875rem;
@@ -292,7 +298,18 @@ padding:0 1.5rem 1.5rem 1.5rem;
     padding-right: 0.75rem;
     border:1px solid hsl(0 0% 100%);
     display: inline-block;
-    max-width: 400px;
+    max-width: 300px;
+}
+
+.addUserButton{
+      font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight:500;
+    cursor:pointer;
+    color:white;
+    background-color: black;
+    border-radius: 10px;
+    padding:0.5rem 1rem 0.5rem 1rem;
 }
 
 .table {
@@ -301,13 +318,13 @@ padding:0 1.5rem 1.5rem 1.5rem;
   border-collapse: collapse;
 }
 
-.tableHeader {
+/* .tableHeader {
   background-color: #f1f1f1;
   text-align: left;
   padding: 1rem;
   font-weight: bold;
   color: #333;
-}
+} */
 
 .tableRow {
   background-color: #fff;
@@ -359,28 +376,28 @@ padding:0 1.5rem 1.5rem 1.5rem;
 }
 
 .modalContent button {
-  background-color: #007BFF;
+  background-color: #131313;
   color: white;
   cursor: pointer;
   border: none;
 }
 
 .modalContent button:hover {
-  background-color: #0056b3;
+  background-color: #484848;
 }
-
+/* 
 .usersList {
   margin-top: 2rem;
-}
+} */
 
-.userRow {
+/* .userRow {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
-}
-
+} */
+/* 
 .userRow button {
   background-color: #ff4040;
   color: white;
@@ -388,11 +405,11 @@ padding:0 1.5rem 1.5rem 1.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 5px;
-}
+} */
 
-.userRow button:hover {
+/* .userRow button:hover {
   background-color: #e53935;
-}
+} */
 
 input[type="text"],
 input[type="email"],
@@ -406,3 +423,83 @@ select:focus {
   border-color: #007BFF;
   outline: none;
 } 
+
+
+
+
+
+
+
+
+
+.usersList {
+  margin-top: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr;
+  background-color: #f8fafc;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.userRow {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr;
+  align-items: center;
+  background-color: white;
+  padding: 16px 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.userRow:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.roleBadge {
+  background-color: #e5e7eb;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.editBtn {
+  padding: 6px 12px;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.editBtn:hover {
+  background-color: #f3f4f6;
+}
+
+.deleteBtn {
+  padding: 6px 12px;
+  /* background-color: #ef4444; */
+  background-color: #c70d0d;
+  
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.deleteBtn:hover {
+  background-color: #dc2626;
+}
