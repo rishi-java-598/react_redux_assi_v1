@@ -1,0 +1,133 @@
+.dashboard {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  color: gray;
+}
+
+.tabsList {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tabsList button {
+  padding: 8px 12px;
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+}
+
+.tabsList button:hover {
+  background-color: #ddd;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 6px;
+  width: 200px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.cardHeader h3 {
+  margin: 0;
+}
+
+.cardHeader p {
+  color: #666;
+  margin: 4px 0 0;
+}
+
+.cardContent p {
+  margin: 8px 0;
+}
+
+.status {
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  font-weight: bold;
+}
+
+.status.active {
+  background-color: #d4f7d4;
+  color: #155724;
+}
+
+.status.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status.cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.paymentSection {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.paymentInput {
+  padding: 6px;
+  flex: 1;
+}
+
+.payButton {
+  padding: 6px 12px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.payButton:hover {
+  background-color: #0056b3;
+}
+
+.table {
+  margin-top: 16px;
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 8px 0;
+}
+
+.tableHeader {
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
