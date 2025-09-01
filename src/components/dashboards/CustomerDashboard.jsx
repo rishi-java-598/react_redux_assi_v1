@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styles from '../../styles/customerDashboard.module.css';
 import styles2 from '../../styles/adminDashboard.module.css'
+import UploadDocuments from './Doc';
+
+
 const CustomerDashboard = () => {
   const { user } = useSelector((state) => state.auth);
   const { policies } = useSelector((state) => state.policies);
@@ -61,8 +64,8 @@ const CustomerDashboard = () => {
   };
 
   return (
-    <div className={styles.dashboard}>
-      <div className={styles.header}>
+    <div className={styles2.dashboard}>
+      <div className={styles2.header}>
         <h1>Welcome, {user?.name}</h1>
         <p>Customer Dashboard</p>
       </div>
@@ -70,10 +73,10 @@ const CustomerDashboard = () => {
       <div className={styles2.tabs}>
         <div className={styles2.tabsList}>
 
-                    <div className={activeTab === 'policies' ? styles2.activeTab : ''} onClick={() => setActiveTab('policies')}>Overview</div>
-                    <div className={activeTab === 'claims' ? styles2.activeTab : ''} onClick={() => setActiveTab('claims')}>Manage Users</div>
-                    <div className={activeTab === 'payments' ? styles2.activeTab : ''} onClick={() => setActiveTab('payments')}>Policy Status</div>
-                    <div className={activeTab === 'documents' ? styles2.activeTab : ''} onClick={() => setActiveTab('documents')}>Claims Status</div>
+                    <div className={activeTab === 'policies' ? styles2.activeTab : ''} onClick={() => setActiveTab('policies')}>policies</div>
+                    <div className={activeTab === 'claims' ? styles2.activeTab : ''} onClick={() => setActiveTab('claims')}>claims</div>
+                    <div className={activeTab === 'payments' ? styles2.activeTab : ''} onClick={() => setActiveTab('payments')}>payments</div>
+                    <div className={activeTab === 'documents' ? styles2.activeTab : ''} onClick={() => setActiveTab('documents')}>documents</div>
       </div>
         </div>
 
@@ -162,6 +165,27 @@ const CustomerDashboard = () => {
         )}
 
         {activeTab === 'payments' && (
+          // <div className={styles.section}>
+          //   <h2>Payment History</h2>
+          //   <div className={styles.table}>
+          //     <div className={styles.tableHeader}>
+          //       <span>Date</span>
+          //       <span>Amount</span>
+          //       <span>Type</span>
+          //       <span>Status</span>
+          //     </div>
+          //     {userPayments.map(payment => (
+          //       <div key={payment.id} className={styles.tableRow}>
+          //         <span>{payment.date}</span>
+          //         <span>${payment.amount}</span>
+          //         <span>{payment.type}</span>
+          //         <span className={`${styles.status} ${styles[payment.status.toLowerCase()]}`}>
+          //           {payment.status}
+          //         </span>
+          //       </div>
+          //     ))}
+          //   </div>
+          // </div>
           <div className={styles.section}>
             <h2>Payment History</h2>
             <div className={styles.table}>
@@ -183,12 +207,13 @@ const CustomerDashboard = () => {
               ))}
             </div>
           </div>
+         
         )}
 
         {activeTab === 'documents' && (
           <div className={styles.section}>
             <h2>Document Management</h2>
-            <p>Document upload section here...</p>
+            <UploadDocuments />
           </div>
         )}
       </div>
