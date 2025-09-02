@@ -59,7 +59,7 @@ header{
 @media (max-width: 768px) {
   .headerContent {
     padding: 16px;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 12px;
   }
   

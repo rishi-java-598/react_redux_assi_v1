@@ -16,8 +16,8 @@ export default function Navbar() {
         <div className={styles.headerContent}>
           <h1 className={styles.logo}>Insurance Portal</h1>
           <div className={styles.userInfo}>
-            <span>Welcome, {user?.name}</span>
-            <span className={styles.role}>({user?.role})</span>
+            {/* <span>Welcome, {user?.name}</span>
+            <span className={styles.role}>({user?.role})</span> */}
             <button className={styles.lgout} onClick={handleLogout} variant="outline" size="sm">
               Logout
             </button>

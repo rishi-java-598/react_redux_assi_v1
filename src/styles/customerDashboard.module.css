@@ -234,7 +234,41 @@
 
 
 
+@media (max-width: 500px) {
+.sectionHeader {
+  flex-direction: column;
+  justify-content:center;
+  gap: 20px;
+  align-items: center;
+}
+.searchInput{
+  width: 100%;
 
+}
+.sectionHeader h2{
+  text-align: left;
+        display: block;
+        width: 100%;
+}
+
+  
+}
+@media (max-width: 400px) {
+ 
+  .grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  background: #fff;
+}
+}
 
 
 
