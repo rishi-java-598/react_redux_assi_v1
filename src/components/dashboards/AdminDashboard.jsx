@@ -75,6 +75,7 @@ const AdminDashboard = () => {
         </div>
       </div>
         {selectedTab === 'overview' && (
+          <div className={styles.outerbody}>
           <div className={styles.overview}>
             <div className={styles.stats}>
               <div className={styles.statCard}>
@@ -147,6 +148,7 @@ const AdminDashboard = () => {
               
             </div>
           </div>
+          </div>
         )}
 
         {selectedTab === 'users' && (
@@ -213,6 +215,7 @@ const AdminDashboard = () => {
                 </div>
               ))}
             </div> */}
+          <div className={styles.outerbody}>
 
 <div className={styles.usersList}>
   <div className={styles.tableHeader}>
@@ -237,6 +240,7 @@ const AdminDashboard = () => {
     </div>
   ))}
 </div>
+          </div>
 
 
 
@@ -282,6 +286,7 @@ const AdminDashboard = () => {
         {selectedTab === 'policies' && (
   <div className={styles.policies}>
     <h2 style={{marginTop:"34px"}}>All Policies</h2>
+          <div className={styles.outerbody}>
 
     <div className={styles.usersList}>
       <div className={styles.tableHeader}>
@@ -314,6 +319,7 @@ const AdminDashboard = () => {
         );
       })}
     </div>
+    </div>
   </div>
 )}
 
@@ -321,6 +327,7 @@ const AdminDashboard = () => {
        {selectedTab === 'claims' && (
   <div className={styles.claims}>
     <h2 style={{marginTop:"34px"}}>All Claims</h2>
+                  <div className={styles.outerbody}>
 
     <div className={styles.usersList}>
       <div className={styles.tableHeader}>
@@ -352,6 +359,7 @@ const AdminDashboard = () => {
           </div>
         );
       })}
+      </div>
     </div>
   </div>
 )}

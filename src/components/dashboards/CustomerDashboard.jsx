@@ -188,7 +188,9 @@ const CustomerDashboard = () => {
           // </div>
           <div className={styles.section}>
             <h2>Payment History</h2>
-            <div className={styles.table}>
+                      <div className={styles2.outerbody}>
+
+            <div className={`${styles.table} ${styles2.norm}`}>
               <div className={styles.tableHeader}>
                 <span>Date</span>
                 <span>Amount</span>
@@ -206,6 +208,7 @@ const CustomerDashboard = () => {
                 </div>
               ))}
             </div>
+          </div>
           </div>
          
         )}
