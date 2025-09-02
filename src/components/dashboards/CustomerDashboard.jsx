@@ -219,9 +219,12 @@ const handleAddClaim = () => {
               <div className={styles.cardContent}>
                 <p><strong>Amount:</strong> ${claim.amount}</p>
                 <p><strong>Status:</strong>
-                  <span className={`${styles.status} ${styles[claim.status.toLowerCase()]}`}>
+                  {/* <span className={`${styles.status} ${styles[claim.status.toLowerCase()]}`}>
                     {claim.status}
-                  </span>
+                  </span> */}
+                   <span className={`${styles.status} ${claim.status === 'Approved' ? styles.active : claim.status === 'Rejected' ? styles.cancelled : styles.pending}`}>
+                        {claim.status}
+                      </span>
                 </p>
                 <p><strong>Submitted:</strong> {claim.dateSubmitted}</p>
               </div>
