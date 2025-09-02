@@ -204,17 +204,6 @@ const AdminDashboard = () => {
 
 
 
-             {/* <div className={styles.usersList}>
-              {filteredUsers.map(user => (
-                <div key={user.id} className={styles.userRow}>
-                  <span>{user.name}</span>
-                  <span>{user.email}</span>
-                  <span>{user.role}</span>
-                  <span>{user.phone}</span>
-                  <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
-                </div>
-              ))}
-            </div> */}
           <div className={styles.outerbody}>
 
 <div className={styles.usersList}>
@@ -255,34 +244,6 @@ const AdminDashboard = () => {
         }
         
 
-        {/* {selectedTab === 'policies' && (
-          <div className={styles.policies}>
-            <h2>All Policies</h2>
-            <div className={styles.table}>
-              <div className={styles.tableHeader}>
-                <span>Policy Number</span>
-                <span>Type</span>
-                <span>Customer</span>
-                <span>Premium</span>
-                <span>Status</span>
-              </div>
-              {policies.map(policy => {
-                const customer = users.find(u => u.id === policy.customerId);
-                return (
-                  <div key={policy.id} className={styles.tableRow}>
-                    <span>{policy.policyNumber}</span>
-                    <span>{policy.type}</span>
-                    <span>{customer?.name || 'Unknown'}</span>
-                    <span>${policy.premium}</span>
-                    <span className={`${styles.status} ${styles[policy.status.toLowerCase()]}`}>
-                      {policy.status}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )} */}
         {selectedTab === 'policies' && (
   <div className={styles.policies}>
     <h2 style={{marginTop:"34px"}}>All Policies</h2>

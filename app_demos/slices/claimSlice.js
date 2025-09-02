@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const demoData = [
@@ -24,25 +23,8 @@ const demoData = [
   },
 ];
 
-const loadClaims = () => {
-  const saved = localStorage.getItem('claims');
-  if (saved) {
-    try {
-      return JSON.parse(saved);
-    } catch {
-      return demoData;
-    }
-  }
-  localStorage.setItem('claims', JSON.stringify(demoData));
-  return demoData;
-};
-
-const saveClaims = (claims) => {
-  localStorage.setItem('claims', JSON.stringify(claims));
-};
-
 const initialState = {
-  claims: loadClaims(),
+  claims: demoData,
   loading: false,
   error: null,
   searchTerm: '',
@@ -54,17 +36,14 @@ const claimsSlice = createSlice({
   reducers: {
     setClaims: (state, action) => {
       state.claims = action.payload;
-      saveClaims(state.claims);
     },
     addClaim: (state, action) => {
       state.claims.push(action.payload);
-      saveClaims(state.claims);
     },
     updateClaim: (state, action) => {
       const index = state.claims.findIndex(c => c.id === action.payload.id);
       if (index !== -1) {
         state.claims[index] = action.payload;
-        saveClaims(state.claims);
       }
     },
     setSearchTerm: (state, action) => {

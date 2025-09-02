@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const demoData = [
@@ -31,25 +30,8 @@ const demoData = [
   },
 ];
 
-const loadPayments = () => {
-  const saved = localStorage.getItem('payments');
-  if (saved) {
-    try {
-      return JSON.parse(saved);
-    } catch {
-      return demoData;
-    }
-  }
-  localStorage.setItem('payments', JSON.stringify(demoData));
-  return demoData;
-};
-
-const savePayments = (payments) => {
-  localStorage.setItem('payments', JSON.stringify(payments));
-};
-
 const initialState = {
-  payments: loadPayments(),
+  payments: demoData,
   loading: false,
   error: null,
 };
@@ -60,18 +42,14 @@ const paymentsSlice = createSlice({
   reducers: {
     setPayments: (state, action) => {
       state.payments = action.payload;
-      savePayments(state.payments);
     },
     addPayment: (state, action) => {
       state.payments.push(action.payload);
-      
-      savePayments(state.payments);
     },
     updatePayment: (state, action) => {
       const index = state.payments.findIndex(p => p.id === action.payload.id);
       if (index !== -1) {
         state.payments[index] = action.payload;
-        savePayments(state.payments);
       }
     },
   },

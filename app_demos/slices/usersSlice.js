@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const demoUsers = [
@@ -36,25 +35,8 @@ const demoUsers = [
   },
 ];
 
-const loadUsers = () => {
-  const saved = localStorage.getItem('users');
-  if (saved) {
-    try {
-      return JSON.parse(saved);
-    } catch {
-      return demoUsers;
-    }
-  }
-  localStorage.setItem('users', JSON.stringify(demoUsers));
-  return demoUsers;
-};
-
-const saveUsers = (users) => {
-  localStorage.setItem('users', JSON.stringify(users));
-};
-
 const initialState = {
-  users: loadUsers(),
+  users: demoUsers,
   loading: false,
   error: null,
 };
@@ -65,22 +47,18 @@ const usersSlice = createSlice({
   reducers: {
     setUsers: (state, action) => {
       state.users = action.payload;
-      saveUsers(state.users);
     },
     addUser: (state, action) => {
       state.users.push(action.payload);
-      saveUsers(state.users);
     },
     updateUser: (state, action) => {
       const index = state.users.findIndex(u => u.id === action.payload.id);
       if (index !== -1) {
         state.users[index] = action.payload;
-        saveUsers(state.users);
       }
     },
     deleteUser: (state, action) => {
       state.users = state.users.filter(u => u.id !== action.payload);
-      saveUsers(state.users);
     },
   },
 });

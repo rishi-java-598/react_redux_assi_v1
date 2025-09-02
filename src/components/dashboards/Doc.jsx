@@ -30,7 +30,6 @@ const UploadDocuments = () => {
 
   return (
     <div className={styles.container}>
-      {/* Upload Section */}
       <div className={styles.section}>
         <h2>Upload Documents</h2>
         <p>Upload policy documents, claim receipts, or other related files</p>
@@ -49,7 +48,6 @@ const UploadDocuments = () => {
         </div>
       </div>
 
-      {/* Uploaded Section */}
       {files.length > 0 && (
         <div className={styles.section}>
           <h2>Uploaded Documents</h2>

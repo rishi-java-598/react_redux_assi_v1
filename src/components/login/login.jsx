@@ -36,10 +36,8 @@ const Login = () => {
     
     dispatch(loginStart());
     
-    // Simulate API call
     setTimeout(() => {
       const user = users.find(u => u.email === email && u.password === password);
-      console.log(user);
       
       if (user) {
         dispatch(loginSuccess(user));
@@ -48,7 +46,6 @@ const Login = () => {
       }
     }, 1000);
   };
-console.log(user);
 
   
   const demoCredentials = [

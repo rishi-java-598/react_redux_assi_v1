@@ -5,7 +5,6 @@ import { addClaim } from '../../store/slices/claimSlice';
 import styles from '../../styles/customerDashboard.module.css';
 import styles2 from '../../styles/adminDashboard.module.css'
 import UploadDocuments from './Doc';
-import { addPayment } from '../../store/slices/paymentSlice';
 
 
 const CustomerDashboard = () => {
@@ -54,9 +53,10 @@ const CustomerDashboard = () => {
       status: 'Completed'
     };
 
-    dispatch(addPayment(newPayment));
+    // Add to local payment list
     setPayments(prev => [...prev, newPayment]);
 
+    // Reset input
     setPaymentAmounts(prev => ({
       ...prev,
       [policyId]: ''
@@ -68,35 +68,33 @@ const CustomerDashboard = () => {
 
 
 
-const dispatch = useDispatch();
- const [newClaim, setNewClaim] = useState({
-  description: "",
-  amount: "",
-  policyId: userPolicies.length > 0 ? userPolicies[0].id : "" // default first policy
-});
+  const dispatch = useDispatch();
+  const [newClaim, setNewClaim] = useState({
+    description: "",
+    amount: ""
+  });
 
-const handleAddClaim = () => {
-  if (!newClaim.description || !newClaim.amount || !newClaim.policyId) {
-    alert("Please fill all fields and select a policy");
-    return;
-  }
+  const handleAddClaim = () => {
+    if (!newClaim.description || !newClaim.amount) {
+      alert("Please fill all fields");
+      return;
+    }
 
-  const claimData = {
-    id: `${Date.now()}`,
-    claimNumber: `CLM-${Math.floor(Math.random() * 10000)}`,
-    customerId: user.id,
-    policyId: newClaim.policyId,
-    description: newClaim.description,
-    amount: Number(newClaim.amount),
-    status: "Pending",
-    dateSubmitted: new Date().toISOString().split("T")[0]
+    const claimData = {
+      id: `${Date.now()}`,
+      claimNumber: `CLM-${Math.floor(Math.random() * 10000)}`,
+      customerId: user.id,
+      description: newClaim.description,
+      amount: Number(newClaim.amount),
+      status: "Pending",
+      dateSubmitted: new Date().toISOString().split("T")[0]
+    };
+
+    dispatch(addClaim(claimData)); // Add to Redux store
+
+    setNewClaim({ description: "", amount: "" });
+    alert("Claim submitted successfully!");
   };
-
-  dispatch(addClaim(claimData)); 
-  setNewClaim({ description: "", amount: "", policyId: userPolicies.length > 0 ? userPolicies[0].id : "" });
-  alert("Claim submitted successfully!");
-};
-
 
 
   return (
@@ -178,36 +176,26 @@ const handleAddClaim = () => {
           />
         </div>
 
-<div className={styles.addClaimForm}>
-  <select
-    value={newClaim.policyId}
-    onChange={(e) => setNewClaim({ ...newClaim, policyId: e.target.value })}
-  >
-    {userPolicies.map(policy => (
-      <option key={policy.id} value={policy.id}>
-        {policy.policyNumber} - {policy.type}
-      </option>
-    ))}
-  </select>
-  <input
-    type="text"
-    placeholder="Claim description"
-    value={newClaim.description}
-    onChange={(e) =>
-      setNewClaim({ ...newClaim, description: e.target.value })
-    }
-  />
-  <input
-    type="number"
-    placeholder="Amount"
-    value={newClaim.amount}
-    onChange={(e) =>
-      setNewClaim({ ...newClaim, amount: e.target.value })
-    }
-  />
-  <button onClick={handleAddClaim}>Submit Claim</button>
-</div>
-
+        {/* Add Claim Form */}
+        <div className={styles.addClaimForm}>
+          <input
+            type="text"
+            placeholder="Claim description"
+            value={newClaim.description}
+            onChange={(e) =>
+              setNewClaim({ ...newClaim, description: e.target.value })
+            }
+          />
+          <input
+            type="number"
+            placeholder="Amount"
+            value={newClaim.amount}
+            onChange={(e) =>
+              setNewClaim({ ...newClaim, amount: e.target.value })
+            }
+          />
+          <button onClick={handleAddClaim}>Submit Claim</button>
+        </div>
 
         <div className={styles.grid}>
           {filteredClaims.map(claim => (
@@ -232,7 +220,27 @@ const handleAddClaim = () => {
     )}
 
         {activeTab === 'payments' && (
-         
+          // <div className={styles.section}>
+          //   <h2>Payment History</h2>
+          //   <div className={styles.table}>
+          //     <div className={styles.tableHeader}>
+          //       <span>Date</span>
+          //       <span>Amount</span>
+          //       <span>Type</span>
+          //       <span>Status</span>
+          //     </div>
+          //     {userPayments.map(payment => (
+          //       <div key={payment.id} className={styles.tableRow}>
+          //         <span>{payment.date}</span>
+          //         <span>${payment.amount}</span>
+          //         <span>{payment.type}</span>
+          //         <span className={`${styles.status} ${styles[payment.status.toLowerCase()]}`}>
+          //           {payment.status}
+          //         </span>
+          //       </div>
+          //     ))}
+          //   </div>
+          // </div>
           <div className={styles.section}>
             <h2>Payment History</h2>
                       <div className={styles2.outerbody}>

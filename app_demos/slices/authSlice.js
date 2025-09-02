@@ -1,57 +1,43 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const demoAuth = {
-  user: null,
-  isAuthenticated: false,
+const initialState = {
+  user:     {
+    id: '2',
+    email: 'agent@example.com',
+    password: 'password',
+    role: 'agent',
+    name: 'Jane Smith',
+    phone: '098-765-4321',
+  },
+  isAuthenticated: true,
   loading: false,
   error: null,
 };
 
-const loadAuth = () => {
-  const saved = localStorage.getItem('auth');
-  if (saved) {
-    try {
-      return JSON.parse(saved);
-    } catch {
-      return demoAuth;
-    }
-  }
-  localStorage.setItem('auth', JSON.stringify(demoAuth));
-  return demoAuth;
-};
-
-const saveAuth = (state) => {
-  localStorage.setItem('auth', JSON.stringify(state));
-};
-
 const authSlice = createSlice({
   name: 'auth',
-  initialState: loadAuth(),
+  initialState,
   reducers: {
     loginStart: (state) => {
       state.loading = true;
       state.error = null;
-      saveAuth(state);
     },
     loginSuccess: (state, action) => {
       state.loading = false;
       state.isAuthenticated = true;
       state.user = action.payload;
       state.error = null;
-      saveAuth(state);
     },
     loginFailure: (state, action) => {
       state.loading = false;
       state.isAuthenticated = false;
       state.user = null;
       state.error = action.payload;
-      saveAuth(state);
     },
     logout: (state) => {
       state.isAuthenticated = false;
       state.user = null;
       state.error = null;
-      saveAuth(state);
     },
   },
 });

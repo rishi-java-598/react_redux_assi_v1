@@ -215,7 +215,6 @@
   min-width: 80px;
 }
 
-/* Status styles */
 .completed {
   background-color: #f1f2f4;
   color: #333;
@@ -231,6 +230,47 @@
 
 
 
+.addClaimForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+  width: 100%;
+  margin: 20px 0;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.addClaimForm select,
+.addClaimForm input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.addClaimForm select:focus,
+.addClaimForm input:focus {
+  outline: none;
+  border-color: #0070f3; 
+}
+
+.addClaimForm button {
+  padding: 10px 15px;
+  background-color: #0070f3;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.addClaimForm button:hover {
+  background-color: #005bb5;
+}
 
 
 

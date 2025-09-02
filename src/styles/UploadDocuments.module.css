@@ -54,7 +54,6 @@
   background: #f3f4f6;
 }
 
-/* File List */
 .fileList {
   display: flex;
   flex-direction: column;

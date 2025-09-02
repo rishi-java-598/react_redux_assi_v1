@@ -15,5 +15,4 @@ export const store = configureStore({
   },
 });
 
-// No TypeScript-specific types in JS, so just export the store
 export default store;

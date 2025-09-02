@@ -85,6 +85,7 @@ const AgentDashboard = () => {
         <p>Agent Dashboard</p>
       </div>
 
+      {/* Tabs */}
       <div className={styles2.tabs}>
         <div className={styles2.tabsList}>
         
@@ -97,6 +98,7 @@ const AgentDashboard = () => {
         </div>
         </div>
 
+        {/* Overview */}
         {activeTab === "overview" && (
           <div className={styles.overview}>
             <div className={styles2.stats}>
@@ -126,6 +128,7 @@ const AgentDashboard = () => {
           </div>
         )}
 
+        {/* Policies */}
         {activeTab === "policies" && (
           <div className={styles.section}>
             <div className={styles3.sectionHeader}>
@@ -175,6 +178,7 @@ const AgentDashboard = () => {
           
         )}
 
+        {/* Claims */}
         {activeTab === "claims" && (
           <div className={styles.section}>
             <div className={styles3.sectionHeader}>
@@ -244,6 +248,7 @@ const AgentDashboard = () => {
           </div>
         )}
 
+        {/* Create Policy */}
         {activeTab === "create" && (
           <div className={styles.section}>
             <h2 className={styles.ch}>Create New Policy</h2>

@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const demoData = [
@@ -35,38 +34,10 @@ const demoData = [
     customerId: '3',
     agentId: '2',
   },
-  {
-    id: '4',
-    policyNumber: 'POL-004',
-    type: 'Home Insurance',
-    premium: 1500,
-    status: 'Active',
-    startDate: '2024-04-01',
-    endDate: '2025-04-01',
-    customerId: '4',
-    agentId: '2',
-  }
 ];
 
-const loadPolicies = () => {
-  const saved = localStorage.getItem('policies');
-  if (saved) {
-    try {
-      return JSON.parse(saved);
-    } catch {
-      return demoData;
-    }
-  }
-  localStorage.setItem('policies', JSON.stringify(demoData));
-  return demoData;
-};
-
-const savePolicies = (policies) => {
-  localStorage.setItem('policies', JSON.stringify(policies));
-};
-
 const initialState = {
-  policies: loadPolicies(),
+  policies: demoData,
   loading: false,
   error: null,
   searchTerm: '',
@@ -78,17 +49,14 @@ const policiesSlice = createSlice({
   reducers: {
     setPolicies: (state, action) => {
       state.policies = action.payload;
-      savePolicies(state.policies);
     },
     addPolicy: (state, action) => {
       state.policies.push(action.payload);
-      savePolicies(state.policies);
     },
     updatePolicy: (state, action) => {
       const index = state.policies.findIndex(p => p.id === action.payload.id);
       if (index !== -1) {
         state.policies[index] = action.payload;
-        savePolicies(state.policies);
       }
     },
     setSearchTerm: (state, action) => {
